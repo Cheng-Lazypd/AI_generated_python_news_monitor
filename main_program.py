@@ -9,7 +9,8 @@ response=requests.get(url,headers=headers)
 html=response.text
 
 #设置调取api
-client = OpenAI(api_key="API_KEY", base_url="https://api.deepseek.com/v1")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+client = OpenAI(api_key=DEEPSEEK_API_KEY, base_url="https://api.deepseek.com/v1")
 
 #用deepseek-chat提取所有latest news
 response = client.chat.completions.create(
